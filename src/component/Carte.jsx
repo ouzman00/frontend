@@ -16,6 +16,7 @@ import Population from "./Population";
 
 export default function Carte({ hopitauxData, ecolesData }) {
   const mapRef = useRef(null);
+  const API = import.meta.env.VITE_API_BASE_URL;
 
   const [map, setMap] = useState(null);
 
@@ -363,10 +364,11 @@ export default function Carte({ hopitauxData, ecolesData }) {
             <Population selectedFeature={selectedFeature} />
 
             <MapEditor
-              map={map}
-              editableLayer={layers.hopitaux}
-              apiBaseUrl="${API}/api/hopitaux/"
-            />
+                map={map}
+                editableLayer={layers.hopitaux}
+                apiBaseUrl={`${API}/api/hopitaux/`}
+              />
+
 
             <RegionChart
               regionsData={[
